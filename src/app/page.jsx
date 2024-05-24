@@ -11,7 +11,7 @@ async function loadTasks() {
   const data = await prisma.task.findMany();
   return data;
 }
-//coment
+//coment--
 export const dynamic = "force-dynamic";
 
 async function HomePage() {
