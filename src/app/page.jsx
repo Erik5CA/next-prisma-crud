@@ -1,5 +1,6 @@
 import TaksCard from "@/components/TaksCard";
 import { prisma } from "@/lib/prisma";
+import { unstable_noStore as noStore } from "next/cache";
 // import { useRouter } from "next/navigation";
 
 async function loadTasks() {
@@ -7,12 +8,12 @@ async function loadTasks() {
   // const res = await fetch('http://localhost/api/tasks')
   // const data = await res.json()
   // console.log(data)
-
+  noStore();
   const data = await prisma.task.findMany();
   return data;
 }
 //coment--
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 async function HomePage() {
   // const router = useRouter();
